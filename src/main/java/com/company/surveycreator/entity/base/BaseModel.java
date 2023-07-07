@@ -1,20 +1,21 @@
-package com.company.surveycreator.model.base;
+package com.company.surveycreator.entity.base;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 @Getter
 @Setter
 public abstract class BaseModel {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected Long id;
 
     @Override
     public final boolean equals(Object o) {
@@ -27,6 +28,7 @@ public abstract class BaseModel {
     }
 
     @Override
+
     public final int hashCode() {
         return id.hashCode();
     }
